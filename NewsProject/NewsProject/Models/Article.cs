@@ -17,6 +17,8 @@ namespace NewsProject.Models
         public string ArticleLink { get; set; }
         public User Writer { get; set; }
         public int UserId { get; set; }
+        public Category Category { get; set; }
+        public int CategoryId { get; set; }
 
     }
 }
