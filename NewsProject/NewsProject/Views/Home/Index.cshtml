@@ -12,7 +12,7 @@
         <div class="arrow-up"></div>
         <div class="label label1">@Html.DisplayFor(modelItem => item.Category.Name)</div>
         <div class="newsPage">
-            <a href="#">
+            <a target="_blank" href="@Html.DisplayFor(modelItem => item.ArticleLink)">
                 <div class="newsTitle">@Html.DisplayFor(modelItem => item.Title)</div>
                 <div class="newsSummary">@Html.DisplayFor(modelItem => item.Description)</div>
             </a>
