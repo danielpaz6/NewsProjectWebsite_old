@@ -12,6 +12,6 @@ namespace NewsProject.Models
         public string UserName { get; set; }
         public int UserPassword { get; set; }
         public string Email { get; set; }
-        public int Permission { get; set; }
+        public int Permissions { get; set; }
     }
 }
