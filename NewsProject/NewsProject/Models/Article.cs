@@ -12,13 +12,13 @@ namespace NewsProject.Models
         public string Description { get; set; }
         public string Date { get; set; }
         public int NumOfLikes { get; set; }
-        public List<User> LikesList { get; set; }
         public string ImageLink { get; set; }
         public string ArticleLink { get; set; }
-        public User Writer { get; set; }
-        public int UserId { get; set; }
         public Category Category { get; set; }
         public int CategoryId { get; set; }
+        public User User { get; set; }
+        public int UserId { get; set; }
+        //public ICollection<User> Users { get; set; }
 
     }
 }

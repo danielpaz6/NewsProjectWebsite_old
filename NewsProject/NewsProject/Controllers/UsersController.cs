@@ -46,7 +46,7 @@ namespace NewsProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserId,UserName,UserPassword,Email,Permission")] User user)
+        public ActionResult Create([Bind(Include = "UserId,Name,Password,Email,Permission")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace NewsProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserId,UserName,UserPassword,Email,Permission")] User user)
+        public ActionResult Edit([Bind(Include = "UserId,Name,Password,Email,Permission")] User user)
         {
             if (ModelState.IsValid)
             {

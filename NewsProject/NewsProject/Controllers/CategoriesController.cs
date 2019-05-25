@@ -46,7 +46,7 @@ namespace NewsProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CategoryId,Color,Name")] Category category)
+        public ActionResult Create([Bind(Include = "CategoryId,Name,Color")] Category category)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace NewsProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CategoryId,Color,Name")] Category category)
+        public ActionResult Edit([Bind(Include = "CategoryId,Name,Color")] Category category)
         {
             if (ModelState.IsValid)
             {

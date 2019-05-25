@@ -12,7 +12,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Category.Color)
+            @Html.DisplayNameFor(model => model.Category.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.Name)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Title)
@@ -32,16 +35,16 @@
         <th>
             @Html.DisplayNameFor(model => model.ArticleLink)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserId)
-        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Category.Color)
+            @Html.DisplayFor(modelItem => item.Category.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Title)
@@ -60,9 +63,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ArticleLink)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserId)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ArticleId }) |

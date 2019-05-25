@@ -17,7 +17,7 @@ namespace NewsProject.Controllers
         // GET: Articles
         public ActionResult Index()
         {
-            var articles = db.Articles.Include(a => a.Category);
+            var articles = db.Articles.Include(a => a.Category).Include(a => a.User);
             return View(articles.ToList());
         }
 
@@ -39,7 +39,8 @@ namespace NewsProject.Controllers
         // GET: Articles/Create
         public ActionResult Create()
         {
-            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Color");
+            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Name");
+            ViewBag.UserId = new SelectList(db.Users, "UserId", "Name");
             return View();
         }
 
@@ -48,7 +49,7 @@ namespace NewsProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ArticleId,Title,Description,Date,NumOfLikes,ImageLink,ArticleLink,UserId,CategoryId")] Article article)
+        public ActionResult Create([Bind(Include = "ArticleId,Title,Description,Date,NumOfLikes,ImageLink,ArticleLink,CategoryId,UserId")] Article article)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +58,8 @@ namespace NewsProject.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Color", article.CategoryId);
+            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Name", article.CategoryId);
+            ViewBag.UserId = new SelectList(db.Users, "UserId", "Name", article.UserId);
             return View(article);
         }
 
@@ -73,7 +75,8 @@ namespace NewsProject.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Color", article.CategoryId);
+            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Name", article.CategoryId);
+            ViewBag.UserId = new SelectList(db.Users, "UserId", "Name", article.UserId);
             return View(article);
         }
 
@@ -82,7 +85,7 @@ namespace NewsProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ArticleId,Title,Description,Date,NumOfLikes,ImageLink,ArticleLink,UserId,CategoryId")] Article article)
+        public ActionResult Edit([Bind(Include = "ArticleId,Title,Description,Date,NumOfLikes,ImageLink,ArticleLink,CategoryId,UserId")] Article article)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +93,8 @@ namespace NewsProject.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Color", article.CategoryId);
+            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Name", article.CategoryId);
+            ViewBag.UserId = new SelectList(db.Users, "UserId", "Name", article.UserId);
             return View(article);
         }
 
