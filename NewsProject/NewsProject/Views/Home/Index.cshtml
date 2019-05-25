@@ -1,4 +1,28 @@
-﻿@{
+﻿@model IEnumerable<NewsProject.Models.Article>
+
+@{
     ViewBag.Title = "Home Page";
 }
 
+
+@foreach (var item in Model)
+{
+    <div class="newsBlock">
+        <img src="@Html.DisplayFor(modelItem => item.ImageLink)" />
+        <div class="arrow-up"></div>
+        <div class="label label1">@Html.DisplayFor(modelItem => item.Category.Name)</div>
+        <div class="newsPage">
+            <a href="#">
+                <div class="newsTitle">@Html.DisplayFor(modelItem => item.Title)</div>
+                <div class="newsSummary">@Html.DisplayFor(modelItem => item.Description)</div>
+            </a>
+            <div class="newsBottom">
+                <div class="newsDate">@Html.DisplayFor(modelItem => item.Date)</div>
+                <div class="newsButtons">
+                    <i class="fa fa-heart-o fixLiked" aria-hidden="true"></i>
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+}

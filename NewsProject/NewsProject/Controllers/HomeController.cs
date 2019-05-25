@@ -1,16 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using NewsProject.Models;
 
 namespace NewsProject.Controllers
 {
     public class HomeController : Controller
     {
+        private NewsDbContext db = new NewsDbContext();
         public ActionResult Index()
         {
-            return View();
+            var articles = db.Articles.Include(a => a.Category).Include(a => a.User);
+            return View(articles.ToList());
+            //return View();
         }
 
         public ActionResult About()

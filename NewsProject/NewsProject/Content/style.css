@@ -6,27 +6,27 @@
 
 @font-face {
 	font-family: montserrat;
-	src: url('./Montserrat-Regular.ttf');
+	src: url('../fonts/Montserrat-Regular.ttf');
 }
 
 @font-face {
-	font-family: montserrat_semibold;
-	src: url('./Montserrat-SemiBold.ttf');
+    font-family: montserrat_semibold;
+    src: url('../fonts/Montserrat-SemiBold.ttf');
 }
 
 @font-face {
-	font-family: assistant;
-	src: url('./Assistant-Regular.ttf');
+    font-family: assistant;
+    src: url('../fonts/Assistant-Regular.ttf');
 }
 
 @font-face {
-	font-family: assistant_light;
-	src: url('./Assistant-Light.ttf');
+    font-family: assistant_light;
+    src: url('../fonts/Assistant-Light.ttf');
 }
 
 @font-face {
-	font-family: assistant_extralight;
-	src: url('./Assistant-ExtraLight.ttf');
+    font-family: assistant_extralight;
+    src: url('../fonts/Assistant-ExtraLight.ttf');
 }
 
 /* Makeshift CSS Reset */
