@@ -12,5 +12,6 @@ public class Article
     public string Image { get; set; }
     public string ArticleLink { get; set; }
     public User Writer { get; set; }
+    public string Daniel { get; set; }
     
 }
