@@ -328,3 +328,14 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+
+# More irrelevant files/folders
+
+NewsProject/NewsProject.sln
+NewsProject/NewsProject/*.config
+NewsProject/NewsProject/*.ico
+NewsProject/NewsProject/NewsProject.csproj
+
+
+
+
