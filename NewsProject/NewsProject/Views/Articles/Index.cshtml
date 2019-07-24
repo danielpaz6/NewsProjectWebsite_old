@@ -76,15 +76,6 @@
 </table><br /><br />
 
 <h3>Add News from Mako:</h3>
-
-@using (Html.BeginForm())
-{
-    <div class="form-group">
-        @Html.LabelFor(model => model.CategoryId, "CategoryId", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <input type="button" value="Add News from mako!" name="makoNews" />
-}
+<form action="/Articles/CNN_News" method="post">
+    <input type="submit" value="Add news from CNN" />
+</form>

@@ -5,24 +5,15 @@
 }
 
 
-@foreach (var item in Model)
-{
-    <div class="newsBlock">
-        <img src="@Html.DisplayFor(modelItem => item.ImageLink)" />
-        <div class="arrow-up"></div>
-        <div class="label label1">@Html.DisplayFor(modelItem => item.Category.Name)</div>
-        <div class="newsPage">
-            <a target="_blank" href="@Html.DisplayFor(modelItem => item.ArticleLink)">
-                <div class="newsTitle">@Html.DisplayFor(modelItem => item.Title)</div>
-                <div class="newsSummary">@Html.DisplayFor(modelItem => item.Description)</div>
-            </a>
-            <div class="newsBottom">
-                <div class="newsDate">@Html.DisplayFor(modelItem => item.Date)</div>
-                <div class="newsButtons">
-                    <i class="fa fa-heart-o fixLiked" aria-hidden="true"></i>
-                    <i class="fa fa-share-alt" aria-hidden="true"></i>
-                </div>
+<div class="card-columns">
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <img class="card-img-top img-fluid" src="@Html.DisplayFor(modelItem => item.ImageLink)" alt="Card image cap">
+            <div class="card-block">
+                <h4 class="card-title">Card title that wraps to a new line</h4>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             </div>
         </div>
-    </div>
-}
+    }
+</div>

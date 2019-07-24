@@ -209,5 +209,12 @@ namespace NewsProject.Controllers
                 this.Create(a);
             }
         }
+
+        [HttpPost]
+        public string CNN_News()
+        {
+            return "hello";
+        }
     }
+
 }
