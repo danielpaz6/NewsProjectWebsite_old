@@ -3,8 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.ServiceModel.Syndication;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace NewsProject.Models
 {
@@ -82,6 +85,35 @@ namespace NewsProject.Models
 
                 ArticlesController ac = new ArticlesController();
                 ac.Create(a);
+            }
+        }
+
+        public void AddBBCNews(string url, Category cat, User user)
+        {
+            //string url = "http://rss.cnn.com/rss/edition.rss";
+            XmlReader reader = XmlReader.Create(url);
+            SyndicationFeed feeds = SyndicationFeed.Load(reader); // References -> Right Click -> Add Reference -> System.ServiceModel
+            reader.Close();
+            var ns = (XNamespace)"http://search.yahoo.com/mrss/";
+            foreach (SyndicationItem item in feeds.Items)
+            {
+                if (item.Summary == null)
+                    continue;
+
+                string subject = item.Title.Text;
+                string summary = item.Summary.Text;
+
+                var urls = from ext in item.ElementExtensions  // all extensions to ext
+                           where ext.OuterName == "group" &&    // find the ones called group
+                                 ext.OuterNamespace == ns       // in the right namespace
+                           from content in ext.GetObject<XElement>().Elements(ns + "content") // get content elements
+                           where (string)content.Attribute("medium") == "image"  // if that medium is an image
+                           select (string)content.Attribute("url");
+
+                if (urls.Count() < 5)
+                    continue;
+
+                string img = urls.ToArray()[3];
             }
         }
     }

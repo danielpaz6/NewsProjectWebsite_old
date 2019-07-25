@@ -28,7 +28,7 @@ namespace NewsProject
 
             bundles.Add(new StyleBundle("~/Content/css2").Include(
                       //"~/Content/bootstrap.css",
-                      "~/Content/app.css")); // was site.css
+                      "~/Content/app2.css")); // was site.css
 
             bundles.Add(new StyleBundle("~/Content/bootstrap").Include(
                       //"~/Content/bootstrap.css",
