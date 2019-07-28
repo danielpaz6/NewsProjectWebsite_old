@@ -33,5 +33,11 @@ namespace NewsProject.Controllers
 
             return View();
         }
+
+        [HttpPost]
+        public string register(string username, string password, string email)
+        {
+            return "test";
+        }
     }
 }
