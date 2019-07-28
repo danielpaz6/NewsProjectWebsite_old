@@ -36,7 +36,7 @@ namespace NewsProject.Controllers
         [HttpPost]
         public ActionResult register([Bind(Include = "UserId,Name,Password,Email,Permission")] User user)
         {
-            //hi
+            //hii
             if (ModelState.IsValid)
             {
                 if (!db.Users.Contains(user))
