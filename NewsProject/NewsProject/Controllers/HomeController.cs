@@ -33,11 +33,19 @@ namespace NewsProject.Controllers
 
             return View();
         }
-
         [HttpPost]
-        public string register(string username, string password, string email)
+        public ActionResult register([Bind(Include = "UserId,Name,Password,Email,Permission")] User user)
         {
-            return "test";
+            if (ModelState.IsValid)
+            {
+                if (!db.Users.Contains(user))
+                {
+                    db.Users.Add(user);
+                    db.SaveChanges();
+                }
+            }
+
+            return View();
         }
     }
 }
