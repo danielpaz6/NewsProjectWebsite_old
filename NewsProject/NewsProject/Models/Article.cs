@@ -20,5 +20,12 @@ namespace NewsProject.Models
         public int UserId { get; set; }
         //public ICollection<User> Users { get; set; }
 
+        public string shortString(string input, int limit)
+        {
+            if (input.Length < limit)
+                return input;
+            else
+                return input.Substring(0, limit) + "...";
+        }
     }
 }

@@ -10,7 +10,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table table-bordered">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Category.Name)
@@ -38,7 +38,6 @@
         </th>
         <th></th>
     </tr>
-
     @foreach (var item in Model)
     {
         <tr>
@@ -49,10 +48,10 @@
                 @Html.DisplayFor(modelItem => item.User.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Title)
+                @item.shortString(item.Title, 40)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                @item.shortString(item.Description, 40)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Date)
@@ -61,21 +60,53 @@
                 @Html.DisplayFor(modelItem => item.NumOfLikes)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ImageLink)
+                <img src="@Html.DisplayFor(modelItem => item.ImageLink)" width="60px" height="60px" />
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ArticleLink)
+                <a href="@Html.DisplayFor(modelItem => item.ArticleLink)">Link</a>
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ArticleId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ArticleId }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.ArticleId }) <br />
+                @Html.ActionLink("Details", "Details", new { id = item.ArticleId }) <br />
                 @Html.ActionLink("Delete", "Delete", new { id = item.ArticleId })
             </td>
         </tr>
     }
 </table><br /><br />
 
-<h3>Add News from Mako:</h3>
+<h3>Add articles from other sources</h3>
+
+<div class="card-group">
+    <div class="card text-center">
+        <div class="card-block">
+            <h4 class="card-title fixed-font">BBC RSS</h4>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+        <div class="card-footer">
+            <a href="#" class="btn btn-primary">Add Articles</a>
+        </div>
+    </div>
+    <div class="card text-center">
+        <div class="card-block">
+            <h4 class="card-title fixed-font">FoxNews RSS</h4>
+            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+        </div>
+        <div class="card-footer">
+            <a href="#" class="btn btn-primary">Add Articles</a>
+        </div>
+    </div>
+    <div class="card text-center">
+        <div class="card-block">
+            <h4 class="card-title fixed-font">Mako RSS</h4>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        </div>
+        <div class="card-footer">
+            <a href="#" class="btn btn-primary">Add Articles</a>
+        </div>
+    </div>
+</div>
+
+<!--
 <form action="/Articles/CNN_News" method="post">
     <input type="submit" value="Add news from CNN" />
-</form>
+</form>-->

@@ -8,12 +8,18 @@
 <div class="card-columns">
     @foreach (var item in Model)
     {
+        for (int i = 0; i < 3; i++)
+        {
         <div class="card">
             <img class="card-img-top img-fluid" src="@Html.DisplayFor(modelItem => item.ImageLink)" alt="Card image cap">
             <div class="card-block">
-                <h4 class="card-title">Card title that wraps to a new line</h4>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <h5 class="card-title fixed-font">Card title that wraps to a new line</h5>
+                <p class="card-text fixed-fontsize">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">Last updated 3 mins ago</small>
             </div>
         </div>
+        }
     }
 </div>

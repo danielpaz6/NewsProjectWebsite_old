@@ -1,0 +1,11 @@
+﻿.card {
+    padding: 0 !important;
+}
+
+.fixed-font {
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif !important;
+}
+
+.fixed-fontsize {
+    font-size: 14px;
+}
