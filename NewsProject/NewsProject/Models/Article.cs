@@ -26,6 +26,7 @@ namespace NewsProject.Models
                 return input;
             else
                 return input.Substring(0, limit) + "...";
+
         }
     }
 }
