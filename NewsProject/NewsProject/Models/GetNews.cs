@@ -88,9 +88,9 @@ namespace NewsProject.Models
             }
         }
 
-        public void AddBBCNews(string url, Category cat, User user)
+        public void Add_CNN_News()
         {
-            //string url = "http://rss.cnn.com/rss/edition.rss";
+            string url = "http://rss.cnn.com/rss/edition.rss";
             XmlReader reader = XmlReader.Create(url);
             SyndicationFeed feeds = SyndicationFeed.Load(reader); // References -> Right Click -> Add Reference -> System.ServiceModel
             reader.Close();
