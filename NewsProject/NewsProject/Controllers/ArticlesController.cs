@@ -210,12 +210,94 @@ namespace NewsProject.Controllers
             }
         }
 
-        [HttpPost]
-        public string CNN_News()
+        
+        public void CNN_News()
         {
-            return "hello";
+            GetNews gn = new GetNews();
+            List<string[]> lst = gn.Add_CNN_News();
+            Category c = new Category();
+            c.Color = "blue";
+            c.Name = "blue";
+            c.CategoryId = 0;
+            User u = new User();
+            u.Email = "bla@gmail.com";
+            u.Name = "CNN";
+            u.Password = "";
+            u.Permission = 0;
+
+            foreach(string[] str in lst)
+            {
+                Article a = new Article();
+                a.ArticleLink = str[2];
+                a.Category = c;
+                a.Date = DateTime.Now.ToString("M/d/yyyy");
+                a.Description = str[1];
+                a.ImageLink = str[3];
+                a.Title = str[0];
+                a.User = u;
+                a.NumOfLikes = 0;
+                this.Create(a);
+            }
         }
 
+        public void FOX_News()
+        {
+            GetNews gn = new GetNews();
+            List<string[]> lst = gn.Add_FOX_News();
+            Category c = new Category();
+            c.Color = "blue";
+            c.Name = "blue";
+            c.CategoryId = 0;
+            User u = new User();
+            u.Email = "bla@gmail.com";
+            u.Name = "FOX";
+            u.Password = "";
+            u.Permission = 0;
+
+            foreach (string[] str in lst)
+            {
+                Article a = new Article();
+                a.ArticleLink = str[2];
+                a.Category = c;
+                a.Date = DateTime.Now.ToString("M/d/yyyy");
+                a.Description = str[1];
+                a.ImageLink = str[3];
+                a.Title = str[0];
+                a.User = u;
+                a.NumOfLikes = 0;
+
+                this.Create(a);
+            }
+        }
+
+        public void YNET_News()
+        {
+            GetNews gn = new GetNews();
+            List<string[]> lst = gn.Add_Ynet_News();
+            Category c = new Category();
+            c.Color = "blue";
+            c.Name = "blue";
+            c.CategoryId = 0;
+            User u = new User();
+            u.Email = "bla@gmail.com";
+            u.Name = "YNET";
+            u.Password = "";
+            u.Permission = 0;
+
+            foreach (string[] str in lst)
+            {
+                Article a = new Article();
+                a.ArticleLink = str[2];
+                a.Category = c;
+                a.Date = DateTime.Now.ToString("M/d/yyyy");
+                a.Description = str[1];
+                a.ImageLink = str[3];
+                a.Title = str[0];
+                a.User = u;
+                a.NumOfLikes = 0;
+                this.Create(a);
+            }
+        }
     }
 
 }
