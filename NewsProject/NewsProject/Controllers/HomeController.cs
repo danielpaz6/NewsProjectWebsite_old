@@ -49,7 +49,7 @@ namespace NewsProject.Controllers
                 newUser.Password = r.GetMd5Hash(md5Hash, password);
             }
 
-            if(name.Length > 20 || name.Length < 2)
+            if(name.Length > 20 || name.Length < 3)
                 ViewBag.ErrorMessage.Add("The name must be between 2-20 characters.");
 
             if(!Regex.Match(name, "^[a-zA-Z0-9 ]*$").Success)
