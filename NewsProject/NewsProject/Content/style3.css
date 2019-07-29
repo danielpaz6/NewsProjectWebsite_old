@@ -9,3 +9,9 @@
 .fixed-fontsize {
     font-size: 14px;
 }
+
+.fixed-btn {
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif !important;
+    font-size: 14px !important;
+    text-transform: none !important;
+}

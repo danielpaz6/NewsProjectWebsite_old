@@ -34,9 +34,10 @@ namespace NewsProject.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult register([Bind(Include = "UserId,Name,Password,Email,Permission")] User user)
+        public string register([Bind(Include = "Name,Password,Email")] User user)
         {
-            //hii
+            
+            /*
             if (ModelState.IsValid)
             {
                 if (!db.Users.Contains(user))
@@ -45,8 +46,9 @@ namespace NewsProject.Controllers
                     db.SaveChanges();
                 }
             }
-
-            return View();
+            */
+            //return View();
+            return user.Name;
         }
     }
 }

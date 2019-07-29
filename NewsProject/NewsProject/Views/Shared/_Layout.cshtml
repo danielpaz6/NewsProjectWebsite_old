@@ -8,12 +8,7 @@
     <meta name="description" content="Responsive Bootstrap 4 Magazine/Blog Theme">
     <meta name="author" content="Bootlab">
     <title>Papor.io - News Website</title>
-    <!--<link href="./style.css" rel="stylesheet">
-    <link href="./app.css" rel="stylesheet">-->
-    <!--<script src="/Scripts/jquery.js" />
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="/Scripts/script.js" />-->
-    
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/script")
@@ -36,10 +31,6 @@
                             <div class="dropdown-menu" aria-labelledby="dropdown02">
                                 <a class="dropdown-item" href="#">One column</a>
                                 <a class="dropdown-item" href="#">Two column</a>
-                                <a class="dropdown-item" href="#">Three column</a>
-                                <a class="dropdown-item" href="#">Four column</a>
-                                <a class="dropdown-item" href="#">Featured posts</a>
-                                <a class="dropdown-item" href="#">Full width</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -55,9 +46,6 @@
                             <div class="dropdown-menu" aria-labelledby="dropdown03">
                                 <a class="dropdown-item" href="#">Typography</a>
                                 <a class="dropdown-item" href="#">Buttons</a>
-                                <a class="dropdown-item" href="#">Tables</a>
-                                <a class="dropdown-item" href="#">Forms</a>
-                                <a class="dropdown-item" href="#">Cards</a>
                             </div>
                         </li>
                     </ul>
@@ -66,18 +54,86 @@
                 <div class="collapse navbar-collapse order-4 order-md-4" id="navbar">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sign in</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Sign up</a>
+                            <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal">Sign Up/In</a>
                         </li>
                     </ul>
-                    <form method="post" action="Home/register" >
-                        <input type="text" name="username" />
-                        <input type="text" name="email" />
-                        <input type="password" name="password" />
-                        <input type="submit" value="register" />
-                    </form>
+
+                    <!-- ------------- -->
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title fixed-font" id="exampleModalLabel">Connection Panel</h5>
+                                    <button type="button" class="close fixed-btn" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true" style="font-size: 1.5rem;">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <article style="display: none;" class="card-body" id="signup_panel">
+                                        <a href="#" class="float-right btn btn-outline-primary fixed-btn" id="signin">Sign in</a>
+                                        <h4 class="card-title mb-4 mt-1 fixed-font">Sign up</h4>
+                                        <form>
+                                            <div class="form-group">
+                                                <input name="" class="form-control" placeholder="Nickname" type="email">
+                                            </div> <!-- form-group// -->
+                                            <div class="form-group">
+                                                <input name="" class="form-control" placeholder="Email" type="email">
+                                            </div> <!-- form-group// -->
+                                            <div class="form-group">
+                                                <input class="form-control" placeholder="******" type="password">
+                                            </div> <!-- form-group// -->
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <button type="submit" class="btn btn-primary btn-block fixed-btn"> Register  </button>
+                                                    </div> <!-- form-group// -->
+                                                </div>
+                                                <div class="col-md-6 text-right">
+                                                    <!--<a class="small" href="#">Forgot password?</a>-->
+                                                </div>
+                                            </div> <!-- .row// -->
+                                        </form>
+                                    </article>
+                                    <article class="card-body" id="signin_panel">
+                                        <a href="#" class="float-right btn btn-outline-primary fixed-btn" id="signup">Sign up</a>
+                                        <h4 class="card-title mb-4 mt-1 fixed-font">Sign in</h4>
+                                        <p>
+                                            <a href="" class="btn btn-block btn-outline-info fixed-btn"> <i class="fab fa-twitter"></i> Login via Twitter</a>
+                                            <a href="" class="btn btn-block btn-outline-primary fixed-btn"> <i class="fab fa-facebook-f"></i> Login via facebook</a>
+                                        </p>
+                                        <hr>
+                                        <form>
+                                            <div class="form-group">
+                                                <input name="" class="form-control" placeholder="Email or login" type="email">
+                                            </div> <!-- form-group// -->
+                                            <div class="form-group">
+                                                <input class="form-control" placeholder="******" type="password">
+                                            </div> <!-- form-group// -->
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <button type="submit" class="btn btn-primary btn-block fixed-btn"> Login  </button>
+                                                    </div> <!-- form-group// -->
+                                                </div>
+                                                <div class="col-md-6 text-right">
+                                                    <a class="small" href="#">Forgot password?</a>
+                                                </div>
+                                            </div> <!-- .row// -->
+                                        </form>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <div>
+                           
+                        </div>
+                    }
+                    <!-- ------------- -->
                     <form class="form-inline" role="search">
                         <input class="search js-search form-control form-control-rounded mr-sm-2" type="text" title="Enter search query here.." placeholder="Search.." aria-label="Search">
                     </form>
@@ -125,7 +181,6 @@
                                     <img class="card-img" src="./Milo - Magazine_Blog Theme_files/3.jpg" alt="">
                                 </a>
                                 <time class="timeago" datetime="2017-07-16 20:00" data-tid="8">2 years ago</time> in Work
-
                             </div>
                         </div><!-- /.card -->
                     </aside>
