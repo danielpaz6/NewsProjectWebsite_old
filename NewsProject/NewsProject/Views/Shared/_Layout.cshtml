@@ -72,15 +72,15 @@
                                     <article style="display: none;" class="card-body" id="signup_panel">
                                         <a href="#" class="float-right btn btn-outline-primary fixed-btn" id="signin">Sign in</a>
                                         <h4 class="card-title mb-4 mt-1 fixed-font">Sign up</h4>
-                                        <form>
+                                        <form action="/Home/register" method="post">
                                             <div class="form-group">
-                                                <input name="" class="form-control" placeholder="Nickname" type="email">
+                                                <input name="name" class="form-control" placeholder="Nickname" type="text">
                                             </div> <!-- form-group// -->
                                             <div class="form-group">
-                                                <input name="" class="form-control" placeholder="Email" type="email">
+                                                <input name="email" class="form-control" placeholder="Email" type="email">
                                             </div> <!-- form-group// -->
                                             <div class="form-group">
-                                                <input class="form-control" placeholder="******" type="password">
+                                                <input name="password" class="form-control" placeholder="******" type="password">
                                             </div> <!-- form-group// -->
                                             <div class="row">
                                                 <div class="col-md-6">
