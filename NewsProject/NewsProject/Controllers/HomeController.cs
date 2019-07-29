@@ -79,6 +79,7 @@ namespace NewsProject.Controllers
                 }
             }
 
+            // We need to check again because error's might occur in the foreach(var user in db.Users) section
             if (ViewBag.ErrorMessage.Count == 0)
             {
                 ViewBag.isRegistered = true;
