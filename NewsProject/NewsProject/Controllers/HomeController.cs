@@ -4,6 +4,8 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using NewsProject.Models;
@@ -33,22 +35,59 @@ namespace NewsProject.Controllers
 
             return View();
         }
+
         [HttpPost]
-        public string register([Bind(Include = "Name,Password,Email")] User user)
+        public ActionResult Register(string name, string email, string password)
         {
-            
-            /*
-            if (ModelState.IsValid)
+            ViewBag.isRegistered = false;
+            ViewBag.ErrorMessage = new List<String>();
+            Md5Code r = new Md5Code();
+            User newUser = new User();
+            newUser.Name = name;
+            newUser.Email = email;
+            using (MD5 md5Hash = MD5.Create()) {
+                newUser.Password = r.GetMd5Hash(md5Hash, password);
+            }
+
+            if(name.Length > 20 || name.Length < 2)
+                ViewBag.ErrorMessage.Add("The name must be between 2-20 characters.");
+
+            if(!Regex.Match(name, "^[a-zA-Z0-9 ]*$").Success)
+                ViewBag.ErrorMessage.Add("The name must contain only: a-zA-Z0-9 or spaces.");
+
+            if(!Regex.Match(email, "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$").Success)
+                ViewBag.ErrorMessage.Add("Invalid email, please try again");
+
+            if (password.Length > 50 || password.Length < 5)
+                ViewBag.ErrorMessage.Add("Password must be between 5-50 characters.");
+
+            if (ViewBag.ErrorMessage.Count == 0)
             {
-                if (!db.Users.Contains(user))
+                foreach(var user in db.Users) // How to make it faster?
                 {
-                    db.Users.Add(user);
-                    db.SaveChanges();
+                    if(user.Name.Equals(name))
+                    {
+                        ViewBag.ErrorMessage.Add("The username is already exists!");
+                        break;
+                    }
+
+                    if (user.Email.Equals(email))
+                    {
+                        ViewBag.ErrorMessage.Add("The email is already exists!");
+                        break;
+                    }
                 }
             }
-            */
-            //return View();
-            return user.Name;
+
+            if (ViewBag.ErrorMessage.Count == 0)
+            {
+                ViewBag.isRegistered = true;
+                // --- insert the user to the 
+                db.Users.Add(newUser);
+                db.SaveChanges();
+            }
+
+            return View();
         }
     }
 }
