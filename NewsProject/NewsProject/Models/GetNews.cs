@@ -67,8 +67,8 @@ namespace NewsProject.Models
 
             //return arrayNews;
 
-            
-            for(int i = 0; i < 18; i++)
+
+            for (int i = 0; i < 18; i++)
             {
                 Article a = new Article();
 
@@ -149,9 +149,9 @@ namespace NewsProject.Models
                 string link = item.Links[0].Uri.ToString();
                 string img = null;
                 string desc = null;
-                string pattern1 = @"2";
-                string pattern2 = @"2";
+                string pattern1 = "src='([^']*)'";
              
+
                 RegexOptions options = RegexOptions.Multiline;
 
                 foreach (Match m in Regex.Matches(summary, pattern1, options))
@@ -159,11 +159,8 @@ namespace NewsProject.Models
                     img = m.Groups[1].ToString();
                 }
 
-                foreach (Match m in Regex.Matches(summary, pattern2, options))
-                {
-                    desc = m.Groups[1].ToString();
-                }
-
+                
+                desc = summary.Split(new string[] {"</div>"}, StringSplitOptions.None)[1];
                 temp[0] = subject;
                 temp[1] = desc;
                 temp[2] = link;
@@ -176,7 +173,7 @@ namespace NewsProject.Models
 
         public List<string[]> Add_FOX_News()
         {
-            string url = "https://www.foxnews.com/about/rss";
+            string url = "http://feeds.foxnews.com/foxnews/latest";
             XmlReader reader = XmlReader.Create(url);
             SyndicationFeed feeds = SyndicationFeed.Load(reader); // References -> Right Click -> Add Reference -> System.ServiceModel
             reader.Close();
