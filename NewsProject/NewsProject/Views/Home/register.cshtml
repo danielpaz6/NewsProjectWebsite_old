@@ -1,0 +1,12 @@
+﻿@if (!ViewBag.isRegistered)
+{
+    <div>An error occurred!</div>
+    foreach(var error in ViewBag.ErrorMessage)
+    {
+        <span>@error</span>
+    }
+}
+else
+{
+    <div>Congratulations! you registered to our website!</div>
+}
